@@ -2,6 +2,46 @@ document.addEventListener("DOMContentLoaded", function() {
     // Select all elements you want to animate on scroll
     const animatedElements = document.querySelectorAll('[data-anim]');
 
+
+    const gifPopup = document.getElementById('gif-popup');
+
+    if (textElement && gifPopup) {
+        // When the mouse enters the text area
+        textElement.addEventListener('mouseenter', () => {
+            gifPopup.style.opacity = '1';
+            gifPopup.style.visibility = 'visible';
+        });
+
+        // When the mouse leaves the text area
+        textElement.addEventListener('mouseleave', () => {
+            gifPopup.style.opacity = '0';
+            gifPopup.style.visibility = 'hidden';
+        });
+
+        // When the mouse moves over the text area
+        textElement.addEventListener('mousemove', (e) => {
+            // Move the popup to the cursor's position
+            // The '+20' provides a small offset so the cursor isn't directly on top of the GIF
+            gifPopup.style.left = (e.clientX + 20) + 'px';
+            gifPopup.style.top = (e.clientY + 20) + 'px';
+        });
+    }
+
+  const wrapper = document.getElementById('gif-hover-wrapper');
+  const text = wrapper ? wrapper.querySelector('.animated-text') : null;
+
+  if (wrapper && text) {
+    // When the mouse enters the area, add the animation class
+    wrapper.addEventListener('mouseenter', () => {
+      text.classList.add('ghost-effect');
+    });
+
+    // When the mouse leaves, remove the animation class
+    wrapper.addEventListener('mouseleave', () => {
+      text.classList.remove('ghost-effect');
+    });
+  }
+
     // Options for the Intersection Observer
     const observerOptions = {
         root: null, // observes intersections relative to the viewport

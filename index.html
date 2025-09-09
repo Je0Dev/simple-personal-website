@@ -42,31 +42,54 @@
     </header>
 
     <main>
-        <section id="hero" class="hero">
-            <div class="hero-content animate__animated animate__fadeIn">
-                <h1 class="hero-title">I'm <span class="highlight">George</span></h1>
-                <p class="hero-subtitle">I like learning and creating things</p>
-                <a href="#projects" class="btn">Check my work</a>
-            <div>
-            </div>
-        </section>
 
-        <section id="about" class="about content-section">
-            <div class="container">
-                <h2 class="section-title" data-anim="animate__wobble">About Me</h2>
-                <div class="about-content" data-anim="animate__wobble" data-anim-delay="200">
-                    <img src="/icons/7802355.jpg" alt="George Mastro" class="about-img">
-                    <p>
-                        <li>I'm passionate about technology and constantly seek to expand my knowledge and skills
-                        <li>I thrive in collaborative environments where I can contribute to innovative projects and learn from others</li>
-                </div>
+    <section id="hero" class="hero">
+    <div class="hero-content animate__animated animate__fadeIn">
+        <h1 class="hero-title">I'm <span class="section-title rainbow-glow-hover">George Mas</span></h1>
+        
+        <div class="typing-container">
+            <p class="gif-hover-text">Learning & Creating</p>
+        </div>
+
+        <a href="#projects" class="btn">Check my work</a>
+
+    </div>
+
+</section>
+
+
+       <section id="about" class="about content-section">
+    <div class="container">
+        <h2 class="section-title" data-anim="animate__fadeInUp">About Me</h2>
+        <div class="about-content">
+            <div class="about-image-container" data-anim="animate__slideInLeft">
+                <img src="/icons/7802355.jpg" alt="George Mastro" class="about-img">
             </div>
-        </section>
+
+            <div class="about-text-container" data-anim="animate__slideInRight">
+                <h3>Hello! I'm George.</h3>
+                <p>
+                    I'm a developer and an engineering student, driven by a passion for building elegant and effective solutions. My journey into technology started with a simple curiosity for how things work, and it has since grown into a full-fledged passion for coding and problem-solving.
+                </p>
+                <ul class="about-highlights">
+                    <li><i class="fas fa-rocket"></i> Constantly exploring and learning new technologies</li>
+                    <li><i class="fas fa-users"></i> Thrive in collaborative, team-based environments</li>
+                    <li><i class="fas fa-lightbulb"></i> Love turning complex problems into simple, beautiful code.</li>
+                </ul>
+                <a href="/path-to-your-resume.pdf" download class="btn">
+                    <i class="fas fa-download"></i> Check my Resume
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
 
     
         <section id="projects" class="projects content-section">
             <div class="container">
+                 <div class="about-image-container" data-anim="animate__slideInLeft">
                 <img src="/icons/11194860.jpg" alt="George Mastro" class="about-img">
+                </div>
                 <h2 class="section-title" data-anim="animate__fadeInUp">Here is some of my <span class="highlight">work</span></h2>
                 <div class="project-grid">
                     <div class="project-card" data-anim="animate__wobble">
@@ -147,7 +170,7 @@
     </div>
         </div>
     </div>
-    
+
 </section>
            <section id="experience" class="experience content-section">
     <div class="container">
@@ -168,7 +191,9 @@
        
         <section id="contact" class="contact content-section">
             <div class="container">
+                 <div class="about-image-container" data-anim="animate__slideInLeft">
                  <img src="/icons/3d-rendering-yeti.jpg" alt="George Mastro" class="about-img">
+                    </div>
                 <h2 class="section-title" data-anim="animate__fadeInUp">Get In Touch</h2>
                 <p class="contact-text" data-anim="animate__fadeInUp">
                    Feel free to reach out!
@@ -182,6 +207,7 @@
         <p>&copy; 2025 George Mastro.</p>
     </footer>
 
+     <div id="gif-popup"></div>
     <script src="script.js"></script>
 </body>
 </html>

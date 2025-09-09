@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GIF Hover Test</title>
+    <style>
+        /* Basic page setup */
+        body {
+            display: grid;
+            place-content: center;
+            min-height: 100vh;
+            background-color: #121212;
+            color: #e0e0e0;
+            font-family: sans-serif;
+            font-size: 2rem;
+        }
+
+        /* The text to hover over */
+        #hover-me {
+            cursor: pointer;
+            border-bottom: 2px dotted orange;
+        }
+
+        /* --- The CSS for the GIF Popup --- */
+        #gif-popup {
+            /* A placeholder GIF that is guaranteed to work */
+            background-image: url('/icons/Happy\ Dance\ GIF\ by\ Loading\ Artist.gif');
+            width: 150px;
+            height: 150px;
+            
+            background-size: contain;
+            background-repeat: no-repeat;
+            
+            /* Positioning and visibility */
+            position: fixed;
+            opacity: 0; /* Start hidden */
+            visibility: hidden;
+            pointer-events: none; /* Prevents the GIF from blocking the cursor */
+            z-index: 999;
+            
+            /* Smooth fade-in/out */
+            transition: opacity 0.2s ease;
+        }
+    </style>
+</head>
+<body>
+
+    <p id="hover-me">Hover over this text!</p>
+
+    <div id="gif-popup"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const textElement = document.getElementById('hover-me');
+            const gifPopup = document.getElementById('gif-popup');
+
+            if (textElement && gifPopup) {
+                // When the mouse enters the text area, show the GIF
+                textElement.addEventListener('mouseenter', () => {
+                    gifPopup.style.opacity = '1';
+                    gifPopup.style.visibility = 'visible';
+                });
+
+                // When the mouse leaves the text area, hide the GIF
+                textElement.addEventListener('mouseleave', () => {
+                    gifPopup.style.opacity = '0';
+                    gifPopup.style.visibility = 'hidden';
+                });
+
+                // When the mouse moves, update the GIF's position
+                document.addEventListener('mousemove', (e) => {
+                    // The '+15' provides a small offset
+                    gifPopup.style.left = (e.clientX + 15) + 'px';
+                    gifPopup.style.top = (e.clientY + 15) + 'px';
+                });
+            }
+        });
+    </script>
+
+</body>
+</html>
