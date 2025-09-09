@@ -542,25 +542,25 @@ body {
 
 }
 
-/* --- Skill Tree Section --- */
 
+/* --- Skill Tree Section (Complete) --- */
 
 .skill-tree-container {
-    position: relative;
-    max-width: 800px; /* Control the max size of the tree */
-    margin: 4rem auto 0; /* Center the tree container */
-    height: 500px; /* Give it a fixed height to place nodes within */
+    position: relative; /* CRITICAL: This creates the "playground" for the icons. */
+    max-width: 800px;
+    margin: 4rem auto 0;
+    height: 500px;
 }
 
 .skill-tree-img {
     width: 100%;
     height: 100%;
-    object-fit: contain; /* Ensure the tree scales nicely */
+    object-fit: contain;
 }
 
-/* Base style for each "hanging" skill node */
+/* Base style for each icon */
 .skill-node {
-    position: absolute;
+    position: absolute; /* This tells the icon to obey the container's positioning rules. */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -570,29 +570,27 @@ body {
     border-radius: 50%;
     border: 3px solid var(--primary-color);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    
-    /* The "swaying" animation */
     animation: sway 5s ease-in-out infinite;
-    transform-origin: top center; /* Make it sway from the top */
+    transform-origin: top center;
     transition: transform 0.3s ease;
 }
 
 .skill-node:hover {
-    transform: scale(1.15) !important; /* Scale up on hover, !important to override animation */
+    transform: scale(1.15) !important;
     z-index: 10;
-    animation-play-state: paused; /* Pause the sway on hover */
+    animation-play-state: paused;
 }
 
 .skill-node i {
     font-size: 3rem;
 }
 
-/* The tooltip that appears on hover */
+/* Tooltip styles */
 .skill-tooltip {
     position: absolute;
-    bottom: -40px; /* Position below the node */
+    bottom: -40px;
     background-color: var(--primary-color);
-    color: var(--light-color);
+    color: #fff;
     padding: 0.3rem 0.8rem;
     border-radius: 5px;
     font-size: 0.9rem;
@@ -601,10 +599,7 @@ body {
     visibility: hidden;
     transition: opacity 0.3s ease, transform 0.3s ease;
     transform: translateY(-10px);
-    white-space: nowrap; /* Prevent tooltip from wrapping */
-    pointer-events: none; /* Ignore mouse events */
-    z-index: 5;
-
+    white-space: nowrap;
 }
 
 .skill-node:hover .skill-tooltip {
@@ -613,13 +608,41 @@ body {
     transform: translateY(0);
 }
 
+@keyframes sway {
+    0%, 100% { transform: rotate(2deg); }
+    50% { transform: rotate(-2deg); }
+}
 
+/* --- Positioning Each Skill --- */
+/* This is the part that places each icon in a unique spot. */
+#skill-java { top: 20%; left: 10%; animation-delay: 0.2s; }
+#skill-c { top: 55%; left: 0%; animation-delay: 0.5s; }
+#skill-python { top: 20%; left: 75%; animation-delay: 0.8s; }
+#skill-git { top: 55%; left: 85%; animation-delay: 0.3s; }
+#skill-html { top: 0%; left: 25%; animation-delay: 0.6s; }
+#skill-css { top: 0%; left: 55%; animation-delay: 0.4s; }
+#skill-js { top: 70%; left: 25%; animation-delay: 0.7s; }
+#skill-docker { top: 70%; left: 55%; animation-delay: 0.1s; }
+#skill-linux { top: 90%; left: 40%; animation-delay: 0.9s; }
+
+/* NEW: Add this keyframes rule for the pulsating glow */
+@keyframes glow-effect {
+    0%, 100% {
+        box-shadow: 0 0 10px var(--primary-color);
+    }
+    50% {
+        box-shadow: 0 0 25px var(--primary-color), 0 0 10px var(--primary-light);
+    }
+}
 
 /* The keyframes for the gentle swaying animation */
 @keyframes sway {
     0%, 100% { transform: rotate(2deg); }
     50% { transform: rotate(-2deg); }
 }
+
+
+
 
 /* --- Responsive Fallback for Mobile --- */
 /* On smaller screens, the tree is hard to see. We'll switch to a clean grid. */
@@ -632,9 +655,7 @@ body {
         gap: 1.5rem;
     }
 
-    .skill-tree-img {
-        display: none; /* Hide the tree on mobile */
-    }
+
 
     .skill-node {
         position: static; /* Remove absolute positioning */
